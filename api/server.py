@@ -12,9 +12,9 @@ def parseCSV(fp):
 		reader = csv.DictReader(f)
 		return list(reader)
 
-def parseZipCodes(list):
+def parseZipCodes(listObj):
 	zip_codes = dict()
-	for object in list:
+	for object in listObj:
 		zip_code = object["ZIP"]
 
 		zip_codes[zip] = list()
