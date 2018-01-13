@@ -12,12 +12,16 @@ def parseCSV(fp):
 		reader = csv.DictReader(f)
 		return list(reader)
 
+def parseZipCodes(list):
+	zip_codes = dict()
+	for object in list:
+		zip_code = object["ZIP"]
 
-def searchForZip(codes, zip_code):
-	for obj in codes:
-		if(obj["ZIP"] == zip_code):
-			return obj
+		zip_codes[zip] = list()
+		zip_codes[zip].append(object["LAT"])
+		zip_codes[zip].append(object["LNG"])
 
+	return zip_codes
 
 @route("/")
 def getMap():
@@ -31,17 +35,19 @@ def getMap():
 
 	totalNum = str(index)
 
+	zip_codes_dict = parseZipCodes(zip_lat_long)
+
 	index = 0
 	for provider in provider_data:
 		print(str(index) + "/" + totalNum)
 		point = list()
 		zip_code = provider["Provider Zip Code"]
 
-		location_obj = searchForZip(zip_lat_long, zip_code)
+		location_obj = zip_codes_dict[zip_code]
 
 		if not location_obj == None:
-			lat = location_obj["LAT"]
-			lon = location_obj["LNG"]
+			lat = location_obj[0]
+			lon = location_obj[1]
 			point.append(lat)
 			point.append(lon)
 			point.append(1)
