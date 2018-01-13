@@ -57,8 +57,4 @@ def getMap():
 	template = env.get_template("index.html")
 	return template.render(heatPoints=heatPoints)
 
-
-print(len(parseCSV("../zip_lat_long.csv")))
-print(searchForZip(parseCSV("../zip_lat_long.csv"), '99929'))
-
 run(host='localhost', port=8080)
