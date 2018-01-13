@@ -17,9 +17,9 @@ def parseZipCodes(listObj):
 	for object in listObj:
 		zip_code = object["ZIP"]
 
-		zip_codes[zip] = list()
-		zip_codes[zip].append(object["LAT"])
-		zip_codes[zip].append(object["LNG"])
+		zip_codes[zip_code] = list()
+		zip_codes[zip_code].append(object["LAT"])
+		zip_codes[zip_code].append(object["LNG"])
 
 	return zip_codes
 
