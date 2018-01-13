@@ -25,8 +25,9 @@ def getMap():
 	provider_data = parseCSV("../Medicare_Provider_Charge_Inpatient_DRGALL_FY2015.csv")
 
 	heatPoints = list()
-
+	index = 0
 	for provider in provider_data:
+		print(index)
 		point = list()
 		zip_code = provider["Provider Zip Code"]
 
@@ -39,6 +40,7 @@ def getMap():
 			point.append(lon)
 			point.append(1)
 			heatPoints.append(point)
+		index += 1
 
 	template = env.get_template("index.html")
 	return template.render(heatPoints=heatPoints)
