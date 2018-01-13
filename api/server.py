@@ -57,7 +57,7 @@ def getMap():
 			heatPoints.append(point)
 		index += 1
 
-	template = env.get_template("index.html")
+	template = env.get_template("map_template_script.js")
 	return template.render(heatPoints=heatPoints)
 
 run(host='localhost', port=8080)
