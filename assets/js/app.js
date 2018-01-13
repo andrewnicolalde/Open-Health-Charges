@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
 	var map = new ol.Map({
 	    target: 'map',
 	    layers: [
@@ -11,4 +11,4 @@ window.onload = () => {
 	        zoom: 4
 	    })
 	});
-}
+})
