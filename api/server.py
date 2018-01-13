@@ -27,6 +27,12 @@ def getMap():
 	heatPoints = list()
 	index = 0
 	for provider in provider_data:
+		index += 1
+
+	print(index)
+
+	index = 0
+	for provider in provider_data:
 		print(index)
 		point = list()
 		zip_code = provider["Provider Zip Code"]
