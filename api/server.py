@@ -29,11 +29,11 @@ def getMap():
 	for provider in provider_data:
 		index += 1
 
-	print(index)
+	totalNum = str(index)
 
 	index = 0
 	for provider in provider_data:
-		print(index)
+		print(str(index) + "/" + totalNum)
 		point = list()
 		zip_code = provider["Provider Zip Code"]
 
