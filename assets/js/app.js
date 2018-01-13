@@ -8,3 +8,7 @@ function convertCSVtoJSON(csv){
 
 	return data;
 }
+
+window.onload = function(){
+	fetch('/')
+}
