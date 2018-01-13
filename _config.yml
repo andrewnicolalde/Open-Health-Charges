@@ -17,7 +17,7 @@ title: Open Health Charges
 description: >- # this means to ignore newlines until "baseurl:"
   Built at RoyalHackaway 2018
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://andrewn.io/Open-Health-Charges-Map/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "/Open-Health-Charges-Map" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
