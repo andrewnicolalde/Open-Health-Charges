@@ -42,8 +42,11 @@ def getMap():
 		print(str(index) + "/" + totalNum)
 		point = list()
 		zip_code = provider["Provider Zip Code"]
-
-		location_obj = zip_codes_dict[zip_code]
+		location_obj = None
+		try:
+			location_obj = zip_codes_dict[zip_code]
+		except:
+			print("Zip code could not be found")
 
 		if not location_obj == None:
 			lat = location_obj[0]
