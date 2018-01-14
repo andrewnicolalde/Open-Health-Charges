@@ -40,14 +40,14 @@ function LeapFunctions(type) {
                         }
                     }
 
-                    if (screenGrabbed) {
+                    if (this.screenGrabbed) {
                         if (hand.grabStrength === 0) {
-                            screenGrabbed = false;
-                            console.log("Screen Grabbed: " + screenGrabbed);
+                            this.screenGrabbed = false;
+                            console.log("Screen Grabbed: " + this.screenGrabbed);
                         }
                     }
                 }
-                return screenGrabbed;
+                return this.screenGrabbed;
             }
         }
     };
@@ -106,8 +106,72 @@ function LeapFunctions(type) {
         }
     }
 
-    function hasTwoHands(frame) {
+    function hasTwoHands( frame) {
         return frame.hands.length === 2;
+    }
+
+    function bothClosed(hands) {
+        return hands[0].grabStrength >= 0.9 && hands[1].grabStrength >= 0.9;
+    }
+
+    function handsOpposing(hands, previousFrame) {
+        var hands2d = [to2d(hands[0].translation(previousFrame)),to2d(hands[1].translation(previousFrame))];
+        return dot(hands2d[0], hands2d[1]) < -0.8;
+    }
+
+    function handsClosing(hands, previousFrame) {
+        var pastHand0 = to2d(previousFrame.hands[0].palmPosition);
+        var pastHand1 = to2d(previousFrame.hands[1].palmPosition);
+        var pastDist = length(minus(pastHand0, pastHand1));
+
+        var curHand0 = to2d(hands[0].palmPosition);
+        var curHand1 = to2d(hands[1].palmPosition);
+        var curDist = length(minus(curHand0, curHand1));
+        console.log(curDist - pastDist);
+
+        if (curDist - pastDist > 0.0003) {
+            return 1;
+        } else if (curDist - pastDist < -0.0003) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    function to2d(vec) {
+        var xcomp = dot(vec, [1, 0, 0]);
+        var zcomp = dot(vec, [0, 0, 1]);
+        return toUnit([xcomp, zcomp]);
+    }
+
+    function minus(vec1, vec2) {
+        return [vec1[0]-vec2[0], vec1[1]-vec2[1]];
+    }
+
+    function toUnit(vec) {
+        return divide(vec, length(vec));
+    }
+
+    function dot(vec1, vec2) {
+        if (vec1.length === 2) {
+            return (vec1[0] * vec2[0]) + (vec1[1] * vec2[1]);
+        } else if (vec1.length === 3) {
+            return (vec1[0] * vec2[0]) + (vec1[1] * vec2[1]) + (vec1[2] * vec2[2]);
+        }
+    }
+
+    function divide(vec, scalar) {
+        return [vec[0]/scalar, vec[1]/scalar];
+    }
+
+    function length(vec) {
+        if (vec.length === 2) {
+            var v2 = math.square(vec[0]) + math.square(vec[1]);
+            return math.sqrt(v2);
+        } else if (vec.length === 3) {
+            var v2 = math.square(vec[0]) + math.square(vec[1]) + math.square(vec[2]);
+            return math.sqrt(v2);
+        }
     }
 }
 
