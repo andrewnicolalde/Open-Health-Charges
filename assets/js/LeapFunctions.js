@@ -32,8 +32,8 @@ function LeapFunctions(type) {
                     if (!this.screenGrabbed) {
                         if (hand.grabStrength >= 0.9) {
                             this.screenGrabbed = true;
-                            this.startVector = hand.palmPosition;
-                            this.direction = [1,1];//[hand.translation(this.previousFrame)[0], hand.translation(this.previousFrame)[2]];
+                            this.startVector = to2d(hand.palmPosition);
+
                             console.log("Screen Grabbed: " + this.screenGrabbed);
                             console.log("Grab Start Vector: " + this.startVector);
                             console.log("Direction" + this.direction);
@@ -44,6 +44,8 @@ function LeapFunctions(type) {
                         if (hand.grabStrength === 0) {
                             this.screenGrabbed = false;
                             console.log("Screen Grabbed: " + this.screenGrabbed);
+                        } else {
+                            this.direction = minus(to2d(hand.palmPosition), this.startVector);
                         }
                     }
                 }
