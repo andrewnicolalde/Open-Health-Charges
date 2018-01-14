@@ -10,5 +10,6 @@ window.onload = function(){
 };
 
 function pan(){
+    console.log("PAN");
 	mymap.panBy([leap.getMovementDirection() * 100, leap.getMovementDirection() * 100]);
 }

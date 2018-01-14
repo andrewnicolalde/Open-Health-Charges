@@ -5,7 +5,7 @@ function LeapFunctions(type) {
 
     this.screenGrabbed = false;
     this.startVector = null;
-    this.movementDirection = null
+    this.movementDirection = null;
     //this.endVector = null;
 
     this.controllerOptions = {enableGestures: true};
@@ -15,8 +15,8 @@ function LeapFunctions(type) {
         if (frame.hands.length > 0) {
             if (hasTwoHands(frame)) {
                 if (bothClosed(frame.hands)) {
-                    if(handsOpposing(frame.hands, previousFrame)) {
-                        var closing = handsClosing(frame.hands, previousFrame);
+                    if(handsOpposing(frame.hands, this.previousFrame)) {
+                        var closing = handsClosing(frame.hands, this.previousFrame);
                         if (closing > 0) {
                             console.log("Zoom in");
                         } else if (closing < 0) {
