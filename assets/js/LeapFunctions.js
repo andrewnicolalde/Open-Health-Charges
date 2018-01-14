@@ -119,7 +119,7 @@ function LeapFunctions(type) {
     }
 
     function bothClosed(hands) {
-        return hands[0].grabStrength >= 0.9 && hands[1].grabStrength >= 0.9;
+        return hands[0].grabStrength === 1 && hands[1].grabStrength === 1;
     }
 
     function handsOpposing(hands, previousFrame) {
