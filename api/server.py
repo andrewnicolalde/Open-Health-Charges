@@ -58,6 +58,8 @@ def generateMap():
 			print("Zip code could not be found")
 
 		if not location_obj == None:
+			print(max_total_average_payments)
+			print(provider["Average Total Payments"])
 			lat = location_obj[0]
 			lon = location_obj[1]
 			point.append(lat)
