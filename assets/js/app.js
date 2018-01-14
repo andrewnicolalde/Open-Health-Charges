@@ -10,5 +10,14 @@ window.onload = function(){
 };
 
 function pan(dir){
-    console.log("PAN");	mymap.panBy([dir[0] * 100, dir[1] * 100]);
+    console.log("PAN");
+    mymap.panBy([dir[0] * 100, dir[1] * 100]);
+}
+
+function zoomIn() {
+	mymap.zoomIn();
+}
+
+function zoomOut() {
+	mymap.zoomOut();
 }

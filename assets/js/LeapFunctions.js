@@ -7,6 +7,8 @@ function LeapFunctions(type) {
     this.startVector = null;
     this.movementDirection = null;
     //this.endVector = null;
+    this.zoomin = false;
+    this.zoomout = false;
 
     this.controllerOptions = {enableGestures: true};
 
@@ -19,10 +21,17 @@ function LeapFunctions(type) {
                         var closing = handsClosing(frame.hands, this.previousFrame);
                         if (closing > 0) {
                             console.log("Zoom in");
+                            this.zoomin = true;
+                            this.zoomout = false;
+                            return 1;
                         } else if (closing < 0) {
                             console.log("Zoom out");
+                            this.zoomout = true;
+                            this.zoomin = false;
+                            return -1;
                         } else {
                             console.log("No Zoom");
+                            return 0;
                         }
                     }
                 }

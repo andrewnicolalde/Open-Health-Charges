@@ -31,6 +31,11 @@
           if (leap.mapMovement(frame)) {
               pan(leap.getMovementDirection());
           }
+          else if (leap.mapMovement(frame) === 1) {
+              zoomIn();
+          } else if (leap.mapMovement(frame) === -1 ) {
+              zoomOut();
+          }
 
           leap.previousFrame = frame;
       });
