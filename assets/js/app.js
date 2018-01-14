@@ -11,5 +11,9 @@ window.onload = function(){
 
 function pan(){
     console.log("PAN");
-	mymap.panBy([leap.getMovementDirection() * 100, leap.getMovementDirection() * 100]);
+    mymap.on({
+		pan: function () {
+            mymap.panBy([leap.getMovementDirection() * 100, leap.getMovementDirection() * 100]);
+        }
+	})
 }
