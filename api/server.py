@@ -63,6 +63,7 @@ def generateMap():
 		file.write(output)
 
 @route("/")
+def returnHeatSpots():
 	return static_file("./output/mapping_script.js", "./")
 
 run(host='0.0.0.0', port=8080)
