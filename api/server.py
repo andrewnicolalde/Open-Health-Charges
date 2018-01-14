@@ -64,7 +64,7 @@ def generateMap():
 			lon = location_obj[1]
 			point.append(lat)
 			point.append(lon)
-			point.append(max_total_average_payments / float(provider["Average Total Payments"]))
+			point.append(float(provider["Average Total Payments"]) / max_total_average_payments)
 			heatPoints.append(point)
 		index += 1
 
