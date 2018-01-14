@@ -33,6 +33,9 @@ function LeapFunctions(type) {
                             this.zoomin = false;
                         }
                     }
+                } else {
+                    this.zoomin = false;
+                    this.zoomout = false;
                 }
             } else {
                 for (var i = 0; i < frame.hands.length; i++) {
