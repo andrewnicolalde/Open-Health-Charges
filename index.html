@@ -31,6 +31,8 @@
           if (leap.mapMovement(frame)) {
               pan(leap.getMovementDirection());
           }
+
+          leap.previousFrame = frame;
       });
   </script>
 
