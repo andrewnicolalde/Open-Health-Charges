@@ -4,9 +4,13 @@ window.onload = function(){
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     	maxZoom: 18,
+    	minZoom: 5,
 	}).addTo(mymap);
-mymap.setZoom(5);
+	mymap.setZoom(5);
+	var bounds = new L.LatLngBounds(new L.LatLng(51.802857, -128.999114), new L.LatLng(24.547442, -67.205436));
 	getHeatMap().addTo(mymap);
+	// Saved by Immanuel
+	mymap.setMaxBounds(bounds);
 };
 
 function pan(){
