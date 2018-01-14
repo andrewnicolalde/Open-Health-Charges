@@ -20,6 +20,15 @@
   <script src="/Open-Health-Charges-Map/assets/js/leaflet-heat.js"></script>
   <script src="http://52.56.151.132"></script>
   <script src="/Open-Health-Charges-Map/assets/js/app.js"></script>
+  <script src="http://js.leapmotion.com/leap-0.6.3.min.js"></script>
+  <script>
+      Leap.loop(controllerOptions, function (frame) {
+          if (leap.mapMovement(frame)) {
+              pan();
+          }
+      }
+  </script>
+
 </head>
 <body>
   <h1 class="text-center">Open Health Costs</h1>
