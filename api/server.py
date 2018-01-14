@@ -1,4 +1,4 @@
-from bottle import route, run, request
+from bottle import route, run, request, static_file
 from jinja2 import Environment, FileSystemLoader
 import json
 import csv
@@ -23,8 +23,7 @@ def parseZipCodes(listObj):
 
 	return zip_codes
 
-@route("/")
-def getMap():
+def generateMap():
 	zip_lat_long = parseCSV("../zip_lat_long.csv")
 	provider_data = parseCSV("../Medicare_Provider_Charge_Inpatient_DRGALL_FY2015.csv")
 
@@ -58,6 +57,12 @@ def getMap():
 		index += 1
 
 	template = env.get_template("map_template_script.js")
-	return template.render(heatPoints=heatPoints)
+	output = template.render(heatPoints=heatPoints)
 
-run(host='localhost', port=8080)
+	with open("./output/mapping_script.js", "w") as file:
+		file.write(output)
+
+@route("/")
+	return static_file("./output/mapping_script.js", "./")
+
+run(host='0.0.0.0', port=8080)
