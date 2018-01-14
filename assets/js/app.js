@@ -6,7 +6,7 @@ window.onload = function(){
     	maxZoom: 18,
 	}).addTo(mymap);
 
-	getHeatMap().addTo(mymap);
+	//getHeatMap().addTo(mymap);
 };
 
 function pan(){
