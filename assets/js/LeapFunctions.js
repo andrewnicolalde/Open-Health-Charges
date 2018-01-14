@@ -33,7 +33,7 @@ function LeapFunctions(type) {
                         if (hand.grabStrength >= 0.9) {
                             this.screenGrabbed = true;
                             this.startVector = hand.palmPosition;
-                            this.direction = [hand.translation[0](this.previousFrame), hand.translation[2]this.previousFrame];
+                            this.direction = [hand.translation(this.previousFrame)[0], hand.translation(this.previousFrame)[2]];
                             console.log("Screen Grabbed: " + this.screenGrabbed);
                             console.log("Grab Start Vector: " + this.startVector);
                             console.log("Direction" + this.direction);
