@@ -28,7 +28,6 @@
       var leap = new LeapFunctions();
       Leap.loop(controllerOptions, function (frame) {
           if (leap.mapMovement(frame)) {
-              console.log("Should be panning");
               pan();
           }
       });

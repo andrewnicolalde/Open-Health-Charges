@@ -54,6 +54,7 @@ function LeapFunctions(type) {
 
     this.getMovementDirection = function () {
 
+        return this.direction;
     };
 
     /*this.menuGestures = function menuGestures(frame) {
