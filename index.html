@@ -28,12 +28,12 @@
 
       var leap = new LeapFunctions();
       Leap.loop(controllerOptions, function (frame) {
-          if (leap.mapMovement(frame) === "pan") {
+          if (leap.screenGrabbed) {
               pan(leap.getMovementDirection());
           }
-          else if (leap.mapMovement(frame) === "zoomIn") {
+          else if (leap.zoomin) {
               zoomIn();
-          } else if (leap.mapMovement(frame) === "zoomOut" ) {
+          } else if (leap.zoomout) {
               zoomOut();
           }
 

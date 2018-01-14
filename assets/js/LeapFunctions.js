@@ -23,15 +23,12 @@ function LeapFunctions(type) {
                             console.log("Zoom in");
                             this.zoomin = true;
                             this.zoomout = false;
-                            return "zoomIn";
                         } else if (closing < 0) {
                             console.log("Zoom out");
                             this.zoomout = true;
                             this.zoomin = false;
-                            return "zoomOut";
                         } else {
                             console.log("No Zoom");
-                            return "";
                         }
                     }
                 }
@@ -58,7 +55,6 @@ function LeapFunctions(type) {
                         }
                     }
                 }
-                return "pan";
             }
         }
     };
