@@ -46,9 +46,9 @@ function LeapFunctions(type) {
                             console.log("Screen Grabbed: " + this.screenGrabbed);
                         } else {
                             if (this.previousFrame == null) {
-                                this.direction = minus(to2d(hand.palmPosition), this.startVector) ;
+                                this.direction = minus(to2d(hand.palmPosition), this.startVector);
                             } else {
-                                this.direction = minus(to2d(hand.palmPosition), to2d(this.previousFrame.hands[i].palmPosition) );
+                                this.direction = minus(to2d(hand.palmPosition), to2d(previousFrame.hands[i].palmPosition))
                             }
                         }
                     }
