@@ -23,9 +23,19 @@ def parseZipCodes(listObj):
 
 	return zip_codes
 
+def highestTotalPayment():
+	provider_data = parseCSV("../Medicare_Provider_Charge_Inpatient_DRGALL_FY2015.csv")
+	max_total_average_payments = 0
+	for provider in provider_data:
+		avg_total_payments = float(provider["Average Total Payments"])
+		if(avg_total_payments > max_total_average_payments):
+			max_total_average_payments = avg_total_payments
+	return max_total_average_payments
+
 def generateMap():
 	zip_lat_long = parseCSV("../zip_lat_long.csv")
 	provider_data = parseCSV("../Medicare_Provider_Charge_Inpatient_DRGALL_FY2015.csv")
+	max_total_average_payments = highestTotalPayment()
 
 	heatPoints = list()
 	index = 0
@@ -52,7 +62,7 @@ def generateMap():
 			lon = location_obj[1]
 			point.append(lat)
 			point.append(lon)
-			point.append(1)
+			point.append(max_total_average_payments / float(provider["Average Total Payments"]))
 			heatPoints.append(point)
 		index += 1
 
@@ -67,4 +77,4 @@ def returnHeatSpots():
 	return static_file("./output/mapping_script.js", "./")
 
 generateMap()
-run(host='0.0.0.0', port=8080)
+run(host='0.0.0.0', port=80)
