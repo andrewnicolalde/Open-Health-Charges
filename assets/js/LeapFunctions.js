@@ -29,6 +29,8 @@ function LeapFunctions(type) {
                             this.zoomin = false;
                         } else {
                             console.log("No Zoom");
+                            this.zoomout = false;
+                            this.zoomin = false;
                         }
                     }
                 }
