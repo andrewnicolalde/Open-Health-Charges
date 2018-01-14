@@ -28,6 +28,7 @@
 
       var leap = new LeapFunctions();
       Leap.loop(controllerOptions, function (frame) {
+          leap.mapMovement(frame);
           if (leap.screenGrabbed) {
               pan(leap.getMovementDirection());
           }
