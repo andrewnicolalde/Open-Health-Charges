@@ -23,15 +23,15 @@ function LeapFunctions(type) {
                             console.log("Zoom in");
                             this.zoomin = true;
                             this.zoomout = false;
-                            return 1;
+                            return "zoomIn";
                         } else if (closing < 0) {
                             console.log("Zoom out");
                             this.zoomout = true;
                             this.zoomin = false;
-                            return -1;
+                            return "zoomOut";
                         } else {
                             console.log("No Zoom");
-                            return 0;
+                            return "";
                         }
                     }
                 }
@@ -58,7 +58,7 @@ function LeapFunctions(type) {
                         }
                     }
                 }
-                return this.screenGrabbed;
+                return "pan";
             }
         }
     };
