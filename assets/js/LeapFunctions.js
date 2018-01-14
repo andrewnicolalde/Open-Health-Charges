@@ -48,7 +48,7 @@ function LeapFunctions(type) {
                             if (this.previousFrame == null) {
                                 this.direction = minus(this.startVector, to2d(hand.palmPosition)) ;
                             } else {
-                                this.direction = minus(to2d(this.previousFrame.hands[i].palmPosition, to2d(hand.palmPosition)));
+                                this.direction = minus(to2d(this.previousFrame.hands[i].palmPosition), to2d(hand.palmPosition));
                             }
                         }
                     }
