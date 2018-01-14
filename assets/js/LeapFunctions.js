@@ -45,12 +45,7 @@ function LeapFunctions(type) {
                             this.screenGrabbed = false;
                             console.log("Screen Grabbed: " + this.screenGrabbed);
                         } else {
-                            this.direction = minus(to2d(hand.palmPosition), this.startVector);
-                            // if (this.previousFrame == null) {
-                            //     this.direction = minus(to2d(hand.palmPosition), this.startVector);
-                            // } else {
-                            //     this.direction = minus(to2d(hand.palmPosition), to2d(this.previousFrame.hands[i].palmPosition))
-                            // }
+                            this.direction = times(minus(to2d(hand.palmPosition), this.startVector), -1);
                         }
                     }
                 }
@@ -170,6 +165,9 @@ function LeapFunctions(type) {
 
     function divide(vec, scalar) {
         return [vec[0]/scalar, vec[1]/scalar];
+    }
+    function times(vec, scalar) {
+        return [vec[0]*scalar, vec[1]*scalar];
     }
 
     function length(vec) {
