@@ -28,7 +28,7 @@
       var leap = new LeapFunctions();
       Leap.loop(controllerOptions, function (frame) {
           if (leap.mapMovement(frame)) {
-              pan();
+              pan(leap.getMovementDirection());
           }
       });
   </script>

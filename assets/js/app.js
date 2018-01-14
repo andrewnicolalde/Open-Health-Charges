@@ -5,12 +5,10 @@ window.onload = function(){
     	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     	maxZoom: 18,
 	}).addTo(mymap);
-	pan();
 
 	//getHeatMap().addTo(mymap);
 };
 
-function pan(){
-    console.log("PAN");
-	mymap.panBy([leap.getMovementDirection() * 100, leap.getMovementDirection() * 100]);
+function pan(dir){
+    console.log("PAN");	mymap.panBy([dir[0] * 100, dir[1] * 100]);
 }
